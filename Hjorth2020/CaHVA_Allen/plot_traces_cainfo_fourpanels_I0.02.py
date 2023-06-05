@@ -1134,3 +1134,4 @@ ax4.legend(loc='upper right',ncol=2)
 plt.tight_layout()
 plt.savefig('Results/Soma10/Compare/trace_concentration_idur'+str(idur)+'_iamp'+str(iamp)+'_Ca_SK_both.png')
 #plt.show()
+
