@@ -28,7 +28,7 @@ def manual(filename,idelay,idur,spikedurat,skiptime):
     vmax = max(voltage) 
     vmin = min(voltage) 
     deltav = vmax-vmin
-    vthr  = -20   # If there is a peak above this value, we count it
+    vthr  = -20   # If there is a peak above this value, we count it 
     vprev = vthr-40 # A peak never kicks in at initiation, even if I change vthr
     durthr = spikedurat # Height at which we measure the duration.
     Npeaks = 0
@@ -80,7 +80,7 @@ def manual(filename,idelay,idur,spikedurat,skiptime):
     isi = []
     amps = []
     Namps = min([len(peakmins),len(peakvals)])
-    Ndur = min([len(passtimes_up),len(passtimes_down)])
+    Ndur = min([len(passtimes_up),len(passtimes_down)]) # Should be the same
     for i in range(Ndur):
         dur.append(passtimes_down[i]-passtimes_up[i])
     for i in range(Namps):
@@ -90,7 +90,7 @@ def manual(filename,idelay,idur,spikedurat,skiptime):
     time_peakvals = peaktimes
     
     durthr = 50 # High dur. thr. Should have more than one spike in the last quarter if it is this high
-    Npeaks /= anfraction #Want frequency
+    Npeaks /= anfraction # Want frequency
     # Checking if we've got consistent firing:
     if Npeaks!=0:
         print('in Npeaks!=0')
@@ -98,9 +98,7 @@ def manual(filename,idelay,idur,spikedurat,skiptime):
             Npeaks=0
         if len(dur)==0:
             Npeaks=0
-        if peaktimes[-1]<=(3*idur/4.+idelay) and dur[-1]<durthr: #Checking if there's no firing in the last quarter of the stim. interval AND a short ISI: That means that the firing has stopped
-            Npeaks=0
-        if peaktimes[-1]<=(0.85*idur+idelay) and dur[-1]<20:
+        elif peaktimes[-1]<=(3*idur/4.+idelay) and dur[-1]<durthr: #Checking if there's no firing in the last quarter of the stim. interval AND a short ISI: That means that the firing has stopped
             Npeaks=0
     
     '''
@@ -163,22 +161,22 @@ if __name__ == '__main__':
     vary_Ca_HVA  = True # False
     vary_gpas    = False # 
     
-    gnaf   = 1.0
-    gkaf   = 1.0
-    gcahva = 0
-    gsks   = [0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0,1.1,1.5,2.0,2.5,3.0,5.0,7.5,10.0,15.0]
-    gpas   = 1.0
+    gnaf    = 1.0
+    gkaf    = 1.0
+    gcahvas = [0.02,0.04,0.06,0.08,0.10,0.12,0.14,0.14,0.16,0.18,0.20,0.25,0.30,0.40,0.50]
+    gsk     = 1.0
+    gpas    = 1.0
     
     cm = 1.0
     iamps =  [0,0.001,0.002,0.003,0.004,0.005,0.006,0.007,0.008,0.009,0.01,0.011,0.012,0.013,0.014,0.015,0.016,0.017,0.018,0.019,0.02,0.021,0.022,0.023,0.024,0.025,0.026,0.027,0.028,0.029,0.03,0.031,0.032,0.033,0.034,0.035,0.036,0.037,0.038,0.039,0.04,0.041,0.042,0.043,0.044,0.045,0.046,0.047,0.048,0.049,0.05,0.051,0.052,0.053,0.054,0.055,0.056,0.057,0.058,0.059,0.06]    
     Namps = len(iamps)
     
-    for gsk in gsks:
+    for gcahva in gcahvas:
         varyE = 0
         varymech = 'None' # 'Epas' # 'EK' # 'ENa' # 
         namestring = ''
         if varymech=='ENa':
-            varyE = 63 
+            varyE = 63
             namestring = namestring + 'ENa'+str(varyE)
         elif varymech=='EK':
             varyE = -97
