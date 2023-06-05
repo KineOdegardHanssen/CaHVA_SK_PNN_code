@@ -1,0 +1,49 @@
+{
+  "passive": [
+    {
+      "ra": 352.573006582, 
+      "cm": [
+        {
+          "section": "soma", 
+          "cm": 2.3
+        }, 
+        {
+          "section": "axon", 
+          "cm": 2.3
+        }, 
+        {
+          "section": "dend", 
+          "cm": 2.3
+        }
+      ], 
+      "e_pas": -86.8
+    }
+  ], 
+  "conditions": [
+    {
+      "celsius": 34.0, 
+      "erev": [
+        {
+          "ena": 53.0, 
+          "section": "soma", 
+          "ek": -107.0
+        }
+      ], 
+      "v_init": -86.8
+    }
+  ], 
+  "genome": [
+    {
+      "section": "soma", 
+      "name": "gbar_NaV", 
+      "value": 0.060284977956079899, 
+      "mechanism": "NaV"
+    }, 
+    {
+      "section": "soma", 
+      "name": "gbar_Kv2like", 
+      "value": 0.02697995586624985, 
+      "mechanism": "Kv2like"
+    }
+  ]
+}
