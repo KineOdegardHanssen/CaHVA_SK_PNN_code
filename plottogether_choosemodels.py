@@ -40,7 +40,7 @@ def unpack_sk(filename):
 figname = 'choosemodels_trace_fI_Cain.png'
 
 # Trace file
-folderstart_Hjorth = 'Hjorth2020/FS_Na_K/'
+folderstart_Hjorth = 'Hjorth2020/'
 allenfile = 'Allen_NaV_Kv2like/Results/Soma10/current_idur100_iamp0.01/Epasshift-20_gNaV0.5p_gKv2like0.5p_somaonly_cm1.0_idur100_iamp0.01_dtexp-7_V.txt'
 hjorthfile = folderstart_Hjorth+'Results/Soma10/current_idur100_iamp0.01/somaonly_cm1.0_idur100_iamp0.01_dtexp-7_vinit-86_trec-600.0_V.txt'
 
